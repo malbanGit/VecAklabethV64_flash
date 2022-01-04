@@ -1,0 +1,110 @@
+Over 4 years ago Pix started VecAkalabeth using the Vectrex32 BASIC cart.
+He finished the project and VecAkalabeth can be played... although the newest version was not made
+public yet - since the first versions of this will be part of a Kickstarter reward - so this is not
+fully available yet (and a bid flickery for my taste.
+
+40 Months ago another Vectrex Port was started - but apart from some videos and news feeds we never saw the
+actual thing - and the author went on to other projects.
+
+I must admit I never really played Akalabeth - I was a C64 guy not Apple. 
+Akalabeth was before my time as it was conceived in 1979 (or even earlier), at that time I was busy with my Atari 2600.
+
+My first "Ultima" to play was Ultima 3 and I loved it. 
+
+The Vectrex is defenitly missing adventure titels... and for quite some time now I have been thinking 
+of doing a port - without actually starting it - or earnestly looking at the code.
+
+Different BASIC sources can be found online. As far as I know Richard Garriot made Akalabeth free some years ago.
+This does not mean it is not copyrighted any more, but it means I feel rather confident that
+making a port of a port of the original game (which is free) will not persecuted in any way.
+
+During my "porting" I looked at different sources, the Original BASIC sources (Apple II), a ported GW BASIC and others.
+For "my" port I chose to the language "C" instead of BASIC and as luck has it there was already a "C" port
+done by Paul Robson. I only had to take his sources and compile it for the Vectrex.
+(ehm, no it was not that easy... more on that later)
+
+Anyway during my own adventure a totally new respect for Richard Garriot grew inside of me.
+Akalabeth may be by todays standards a small game that nobody looks at twice - but in its own way it is a really, really cool software!
+
+This game is from 1979! Where computers were no household item. Computers/and programming was absolut "nerd" country. There were virtually no
+games/adventures/RPG available to the masses. RPG games were played at a table (or by students on a Mainframe computer).
+
+And then came Akalabeth:
+- it features a world map (randomly generated)
+- it features dungeons with monsters and loot
+- it featured different player characters (Mage and Fighter)
+- it features a "home base" and a "quest giver"
+- it has towns
+- dungeons in "3d" grafic and a tild based world map
+- and and and
+
+And all that in not even 400 lines of tightly programmed BASIC.
+
+Absolutely marvelous!!! 
+
+And here I was proud to write some Vectrex programs... with years of experience... and a 17 year old freak in 1979 brought Akalabeth to life.
+
+Absolutely marvelous!!! 
+
+----
+
+
+
+World Map:
+* joystick to move around the map.
+
+* Button 1 to see the inventory
+* Button 2 to redisplay last message.
+* Button 3 to ENTER (dungeon / town / castle)
+
+Dungeon:
+* UP move forward
+* left right - turn left/right
+* down turn 180 degrees
+
+* Button 1 to see the inventory
+* Button 2 to redisplay last message.
+* Button 4 ATTACK
+
+
+During attack:
+Select your weapon by pressing (and keeping pressed):
+
+no Button HANDS
+Button 1 - RAPIER
+Button 2 - AXE
+Button 3 - BOW
+Button 1 + Button 2 - SHIELD
+Button 1 + Button 3 - AMULET
+
+While keeping the above buttons PRESSED, also press button four to execute the attack.
+
+
+
+
+
+
+PSHS U
+Text print string routines
+DRAW Line
+
+keyboard input -> button mapping
+
+substitiion for drawlines with vectorlists
+
+No calculation for dungeons anymore, only a set of 12 tiles which are scale "inward"
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+

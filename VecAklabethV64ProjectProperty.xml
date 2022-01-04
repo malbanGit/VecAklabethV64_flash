@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<AllProjectProperties>
+	<ProjectProperties>
+		<Class>Project</Class>
+		<Name>VecAklabethV64</Name>
+		<FileVersion>2</FileVersion>
+		<ProjectName>VecAklabethV64</ProjectName>
+		<DirectoryName></DirectoryName>
+		<Path>projects</Path>
+		<MainFile></MainFile>
+		<Description></Description>
+		<Version>1.0</Version>
+		<Author></Author>
+		<Bankswitching>2 bank standard</Bankswitching>
+		<createBankswitchCode>false</createBankswitchCode>
+		<createGameLoopCode>false</createGameLoopCode>
+		<NumberOfBanks>2</NumberOfBanks>
+		<BankMainFiless>
+			<BankMainFiles>VecAklabethV64</BankMainFiles>
+			<BankMainFiles>VecAklabethV64</BankMainFiles>
+		</BankMainFiless>
+		<Extras>17301504</Extras>
+		<ProjectPreScriptClass></ProjectPreScriptClass>
+		<ProjectPreScriptName></ProjectPreScriptName>
+		<ProjectPostScriptClass></ProjectPostScriptClass>
+		<ProjectPostScriptName></ProjectPostScriptName>
+		<BankDefiness>
+			<BankDefines></BankDefines>
+			<BankDefines></BankDefines>
+		</BankDefiness>
+		<WheelName></WheelName>
+		<IsCDebugging>false</IsCDebugging>
+		<IsCPeephole>true</IsCPeephole>
+		<IsCKeepEnriched>false</IsCKeepEnriched>
+		<IsCProject>false</IsCProject>
+		<IsPeerCProject>true</IsPeerCProject>
+		<CFLAGS>-O3 -quiet -fno-ipa-reference -ftree-ter -fno-gcse -fverbose-asm -W -Wall -Wextra -Wconversion -fomit-frame-pointer -fno-toplevel-reorder -mint8 -msoft-reg-count=0 -std=gnu99 -fno-time-report -IC/PeerC/vectrex/include=gnu99 -fno-time-report -fno-builtin -IC/PeerC/vectrex/include</CFLAGS>
+		<IsCRumInlined>false</IsCRumInlined>
+	</ProjectProperties>
+</AllProjectProperties>
