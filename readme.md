@@ -1,6 +1,6 @@
 # Vectrex Aklabeth
 Based on Paul Robson "C" version:
-![Aklabeth](https://web.archive.org/web/20071227005501/http://www.autismuk.freeserve.co.uk/)
+[Aklabeth](https://web.archive.org/web/20071227005501/http://www.autismuk.freeserve.co.uk/)
 
 Original Akalabeth by Richard Garriot
 Read more about development of this version at: [Vide blog](http://vide.malban.de/tag/aklabeth).
