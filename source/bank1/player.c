@@ -270,7 +270,11 @@ void PLAYERInv(PLAYER *p)
 		ADDLINE;
 		ADDLINE;
 		//        print("Stats(1) Inventory(2) Save(3)");
+#ifdef BUILD_FOR_FLASH
 		print("Config(1) Save(3) Scroll(Joy)");
+#else
+		print("Config(1) Scroll(Joy)");
+#endif
 		//        print("Config(1) Scroll(Joy)");
 		
 		if ( button_1_1_pressed())
@@ -283,6 +287,7 @@ void PLAYERInv(PLAYER *p)
 		if (joystick_1_up()) iState = 0;
 		if (joystick_1_down()) iState = 1;
 		
+#ifdef BUILD_FOR_FLASH
 		if ( button_1_3_pressed())
 		{
               saveFlash();
@@ -330,7 +335,7 @@ void PLAYERInv(PLAYER *p)
 			    DUNGEONCreate(&Player,Dungeon);            // Create the dungeon map
 			
 		}
-		
+#endif		
 		if ( button_1_4_pressed())
 		{
 			break;

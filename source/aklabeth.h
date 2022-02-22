@@ -1,3 +1,35 @@
+// READ!!!
+//
+// if not defined, build will be done for a 64k cart
+// if using VIDE
+// You also MUST change the project settings
+// DISABLE 
+//           48k ROM
+//           Flash support
+//
+// otherwise the bin file will be the wrong size 
+// and you can not burn it to an eprom
+//
+// ******
+// FLASH - the produced "bin" will be 128kB
+// ******
+// to burn it to a flash with 256kB storage, this must still be doubled
+// just concatinate the file twice to result in a 256kB file.
+// if your flash ROM "only" has 128kB, than you can use the file out of the box
+// (saving/loading to flash is enabled)
+//
+//
+// ******
+// 64k Bankswitch
+// ******
+// Do as said above (switching projct settingsm and disable the define below)
+// than a 64Kb bin will be created by Vide, that can be burned to any
+// PB6 bank switched 64k card
+// (saving/loading is disabled)
+#define BUILD_FOR_FLASH 1
+
+
+
 /************************************************************************/
 /************************************************************************/
 /*                                                                        */

@@ -42,7 +42,11 @@ const struct cartridge_t game_header __attribute__((section(".cartridge"), used)
 	.title_width 	= 80,
 	.title_y 		= -16,
 	.title_x 		= -90,
+#ifdef BUILD_FOR_FLASH
 	.title 			= "AKLABETH (FLASH)\x80"	// note that \x00 is automatically appended!
+#else
+	.title 			= "AKLABETH (64K)\x80"	// note that \x00 is automatically appended!
+#endif
 };
 
 #define __ass asm volatile

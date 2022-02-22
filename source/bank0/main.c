@@ -1,4 +1,4 @@
-//alll global variables in cartridge?
+//all global variables in cartridge?
 
 
 // ***************************************************************************
@@ -516,7 +516,9 @@ void __attribute__((used)) introImage(void)
 	long int timer = 0;
 	ym_init(&Ultima_III_a_data);
 	int intensityMode = 0; // 0 increase, 1 stay, 2 decrease / image 1
+#ifdef BUILD_FOR_FLASH
     checkSavedFlash(); // this also respects FIRST start
+#endif
 /*
             		while (1)
             		{
@@ -584,9 +586,11 @@ void __attribute__((used)) introImage(void)
 		Reset0Ref();
 		dp_VIA_t1_cnt_lo = 0x6e;
 		Vec_Text_Width = 0x28;
+#ifdef BUILD_FOR_FLASH
          if (Vec_Num_Players == 0)
         		syncPrintStrd(-0x78, -0x60, "(1)LOAD (2)CONFIG (3)HELP (4)NEW\x80");
          else
+#endif
         		syncPrintStrd(-0x78, -0x60, "(2)CONFIG (3)HELP (4)NEW\x80");
 		
 		check_buttons();
@@ -597,7 +601,9 @@ void __attribute__((used)) introImage(void)
 			{
 				buttonState=1;
 				Vec_Num_Game = 0;
+#ifdef BUILD_FOR_FLASH
 				if (button_1_1_pressed()) Vec_Num_Game = 1;
+#endif
 				if (button_1_2_pressed()) Vec_Num_Game = 2;
 				if (button_1_3_pressed()) Vec_Num_Game = 3;
 				if (button_1_4_pressed()) Vec_Num_Game = 4;
@@ -697,8 +703,13 @@ const char * const help[]=
 {
 	"GENERAL\x80" ,
 	"Button 1\x80",
+#ifdef BUILD_FOR_FLASH
 	"Show currents stats, save\x80",
 	"game and change settings.\x80",
+#else
+	"Show currents stats\x80",
+	"change settings.\x80",
+#endif
 	" \x80",
 	"Button 2\x80",
 	"Redisplay last message.\x80",

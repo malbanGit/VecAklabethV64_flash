@@ -170,6 +170,7 @@ int main(void)
 		Wait_Recal();//        WaitForPB6ToSettle
 		Wait_Recal();
 		
+#ifdef BUILD_FOR_FLASH
 		if (Vec_Num_Game==1) // load is configured out...
 		{
               loadFlash();
@@ -191,7 +192,7 @@ int main(void)
 			}
 		}
 		else
-		
+#endif		
 		{
 			MAINSetup();                            // Set up the player
 		}
