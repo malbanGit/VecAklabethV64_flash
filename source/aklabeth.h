@@ -26,7 +26,7 @@
 // than a 64Kb bin will be created by Vide, that can be burned to any
 // PB6 bank switched 64k card
 // (saving/loading is disabled)
-#define BUILD_FOR_FLASH 1
+//#define BUILD_FOR_FLASH 1
 
 
 
