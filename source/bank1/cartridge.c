@@ -13,6 +13,7 @@
 // peer.johannsen@pforzheim-university.de
 // ---------------------------------------------------------------------------
 
+#include "../aklabeth.h"
 #include "../cartridge.i"
 
 extern void printBank0Message();

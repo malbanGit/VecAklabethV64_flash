@@ -25,8 +25,8 @@
 		<ProjectPostScriptClass></ProjectPostScriptClass>
 		<ProjectPostScriptName></ProjectPostScriptName>
 		<BankDefiness>
-			<BankDefines></BankDefines>
-			<BankDefines></BankDefines>
+			<BankDefines>BUILD_FOR_FLASH=1</BankDefines>
+			<BankDefines>BUILD_FOR_FLASH=1</BankDefines>
 		</BankDefiness>
 		<WheelName></WheelName>
 		<IsCDebugging>false</IsCDebugging>
