@@ -22,31 +22,43 @@
 
 struct cartridge_t
 {
-	char copyright[11];			// copyright string, must start with "g GCE" and must end with "\x80"
-	const void* music;			// 16 bit memory adress of title music data
-	signed int title_height;	// signed 8 bit value, height of game title letters
-	unsigned int title_width;	// unsigned 8 bit value, width of game title letters
-	int title_y;				// signed 8 bit value, y coordinate of game title
-	int title_x;				// signed 8 bit value, x coordinate of game title
-	char title[]; 				// game title string, must end with "\x80\x00"
+    char copyright[11];            // copyright string, must start with "g GCE" and must end with "\x80"
+    const void* music;            // 16 bit memory adress of title music data
 };
 
-// ---------------------------------------------------------------------------
-// edit here to set game title
+struct cartridge_title
+{
+    signed int title_height;    // signed 8 bit value, height of game title letters
+    unsigned int title_width;    // unsigned 8 bit value, width of game title letters
+    int title_y;                // signed 8 bit value, y coordinate of game title
+    int title_x;                // signed 8 bit value, x coordinate of game title
+    char title[11];                 // game title string, must end with the last must end with "\x80\x00" (every befor last only with \0x80)
+};
 
 const struct cartridge_t game_header __attribute__((section(".cartridge"), used)) = 
 {
 	.copyright 		= "g GCE 2021\x80",	// change year if neccessary, do not change "g GCE"
 	.music 			= &Vec_Music_1,		// taken from included headers
-	.title_height 	= -8,
+};
+
+// ---------------------------------------------------------------------------
+// edit here to set game title
+
+const struct cartridge_title game_header1 __attribute__((section(".cartridge"), used)) = 
+{
+	.title_height = -8,
 	.title_width 	= 80,
-	.title_y 		= -16,
-	.title_x 		= -90,
-#ifdef BUILD_FOR_FLASH
-	.title 			= "AKLABETH (FLASH)\x80"	// note that \x00 is automatically appended!
-#else
-	.title 			= "AKLABETH (64K)\x80"	// note that \x00 is automatically appended!
-#endif
+	.title_y 		= 60,
+	.title_x 		= -55,
+	.title 		= "AKLABETH  \x80"	// note that \x00 is automatically appended!
+};
+const struct cartridge_title game_header2 __attribute__((section(".cartridge"), used)) = 
+{
+	.title_height = -8,
+	.title_width 	= 80,
+	.title_y 		= 40,
+	.title_x 		= -60,
+	.title 		= "(XMAX'22)\x80\x00"	// note that \x00 is automatically appended!
 };
 
 #define __ass asm volatile
