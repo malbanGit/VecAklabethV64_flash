@@ -379,7 +379,7 @@ _ym_regs_used = _ym_name +2
 _ym_regs_count = _ym_regs_used + 1
 
 _ym_data_start = 0xcb00-8 ;some 166 bytes // two bytes more and this interferes with the STACK!!!
-                    .blkb       REGS_MAX * STRUCT_LEN
+;                    .blkb       REGS_MAX * STRUCT_LEN
 ; uses X and B
 ; all other registeres stay the same
                     .area .text
