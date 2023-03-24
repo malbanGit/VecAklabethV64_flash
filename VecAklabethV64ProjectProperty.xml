@@ -34,7 +34,7 @@
 		<IsCKeepEnriched>false</IsCKeepEnriched>
 		<IsCProject>false</IsCProject>
 		<IsPeerCProject>true</IsPeerCProject>
-		<CFLAGS>-O3 -quiet -fno-ipa-reference -ftree-ter -fno-gcse -fverbose-asm -W -Wall -Wextra -Wconversion -fomit-frame-pointer -fno-toplevel-reorder -mint8 -msoft-reg-count=0 -std=gnu99 -fno-time-report -IC/PeerC/vectrex/include=gnu99 -fno-time-report -fno-builtin -IC/PeerC/vectrex/include</CFLAGS>
+		<CFLAGS>-O3 -quiet -fno-ipa-reference -ftree-ter -fno-gcse -fverbose-asm -W -Wall -Wextra -Wconversion -fomit-frame-pointer -fno-toplevel-reorder -mint8 -msoft-reg-count=0 -std=gnu99 -fno-time-report -fno-time-report -fno-builtin -IC/PeerC/vectrex/include</CFLAGS>
 		<IsCRumInlined>false</IsCRumInlined>
 	</ProjectProperties>
 </AllProjectProperties>
