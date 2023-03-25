@@ -23,14 +23,20 @@ int strlen(const char *s)
 	return c;
 }
 
+#define ANALOG 0
+#define DIGITAL 1
+
 int inputString8(char *input)
 {
-	int x,y;
+	signed int x,y;
 	long int cx,cy;
 	unsigned int next = 0;
 	int set = 0;
 	long unsigned  old_hw = Vec_Text_HW;
-     Vec_Text_HW = 0xf850;	
+    Vec_Text_HW = 0xf850;	
+    int mode = ANALOG;
+
+    int wasZero = 1;
 
 	for (;;)
 	{
@@ -46,6 +52,17 @@ int inputString8(char *input)
 			next -= 1;
 			input[next] = 0x80;
 		}
+
+		if (button_1_1_pressed())
+		{ 
+		    mode = ANALOG;
+		}
+		if (button_1_2_pressed())
+		{ 
+		    mode = DIGITAL;
+		}
+
+
 		Intensity_a(0x7f);
 		
 		// Display the entered line.  Note there's only room for about 14 characters
@@ -65,13 +82,41 @@ int inputString8(char *input)
 		if (cy < 0) cy = 0;
 		if (cy>5) cy = 5;
 */
-         cx = ( Vec_Joy_1_X >= 0
-               ? (Vec_Joy_1_X >= 60 ? (Vec_Joy_1_X >= 120 ? 5 : 4) : 3)
-               : (Vec_Joy_1_X < -60 ? (Vec_Joy_1_X < -120 ? 0 : 1) : 2));
+        if (mode == DIGITAL)
+        {
+            if ((Vec_Joy_1_X<30) && (Vec_Joy_1_X>-30)) Vec_Joy_1_X = 0;
+            if ((Vec_Joy_1_Y<30) && (Vec_Joy_1_Y>-30)) Vec_Joy_1_Y = 0;
 
-         cy = ( Vec_Joy_1_Y >= 0
-               ? (Vec_Joy_1_Y >= 60 ? (Vec_Joy_1_Y >= 120 ? 0 : 1) : 2)
-               : (Vec_Joy_1_Y < -60 ? (Vec_Joy_1_Y < -120 ? 5 : 4) : 3));
+            if ((Vec_Joy_1_X==0) && (Vec_Joy_1_Y==0))
+                wasZero = 1;
+            else
+            {
+                if (wasZero==1)
+                {
+                    if (Vec_Joy_1_X>0) cx++;
+                    if (Vec_Joy_1_X<0) cx--;
+                    if (Vec_Joy_1_Y>0) cy--;
+                    if (Vec_Joy_1_Y<0) cy++;
+                    if (cx>5) cx = 5;
+                    if (cy>5) cy = 5;
+                    if (cx<0) cx = 0;
+                    if (cy<0) cy = 0;
+                }
+                wasZero = 0;
+            }
+        }
+
+        if (mode == ANALOG)
+        {
+             cx = ( Vec_Joy_1_X >= 0
+                   ? (Vec_Joy_1_X >= 60 ? (Vec_Joy_1_X >= 120 ? 5 : 4) : 3)
+                   : (Vec_Joy_1_X < -60 ? (Vec_Joy_1_X < -120 ? 0 : 1) : 2));
+    
+             cy = ( Vec_Joy_1_Y >= 0
+                   ? (Vec_Joy_1_Y >= 60 ? (Vec_Joy_1_Y >= 120 ? 0 : 1) : 2)
+                   : (Vec_Joy_1_Y < -60 ? (Vec_Joy_1_Y < -120 ? 5 : 4) : 3));
+        }
+
 
 
 
