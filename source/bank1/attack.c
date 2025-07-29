@@ -134,7 +134,7 @@ void ATTACKMonster(PLAYER *p,DUNGEONMAP *d)
 		_ATTACKWeapon(p,d,(unsigned int)n);    // if not thrown, use as weapon
 	}
 	else
-	_ATTACKWeapon(p,d,(unsigned int)n);                // use as bashing weapon
+		_ATTACKWeapon(p,d,(unsigned int)n);                // use as bashing weapon
 }
 
 // **********************************************************************
@@ -169,12 +169,12 @@ static void _ATTACKHitMonster(PLAYER *p,DUNGEONMAP *d,unsigned int Weapon,COORD 
      	m = &(d->Monster[Monster]);
 	n = m->Type;
 	
-	Damage = 0;                                // Get weaponry info
+	Damage = 0;                                // Get weaponry info, hands = Weapon = 255
 	if (Weapon < 100 && Weapon != OB_AMULET)
         	GLOGetInfo(Weapon,&Damage,NULL,NULL);
 	
    	if (Weapon == OB_AMULET)                   // Amulet Special Case
-		    Damage = 10 + p->Level;
+		Damage = 10 + p->Level;
 	
 	if (Monster < 0 || p->Attr[AT_DEXTERITY]-RandMax(25) < n + p->Level)                        // If no, or not dexterous
 	{
@@ -184,15 +184,15 @@ static void _ATTACKHitMonster(PLAYER *p,DUNGEONMAP *d,unsigned int Weapon,COORD 
 	
 	n = 0;                                  // Calculate HPs lost
 	if (Damage > 0) 
-         n = (unsigned int)(RandMax(Damage) );
+        	n = (unsigned int)(RandMax(Damage) );
 
 	n = (unsigned int) (n + p->Attr[AT_STRENGTH]/5);
 	m->Strength = m->Strength - n;            // Lose them
 	if (((signed int)(m->Strength)) < 0) 
-        m->Strength = 0;
+        	m->Strength = 0;
 	
 	if (m->Strength == 0)
-        _ATTACKKill(m,p);    // Killed it ?
+        	_ATTACKKill(m,p);    // Killed it ?
 	else
 	{
 		
