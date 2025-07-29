@@ -85,14 +85,15 @@ void ATTACKMonster(PLAYER *p,DUNGEONMAP *d)
 		_fs("Attack with %.",GLOObjName((unsigned int)n));
 		print_timed(stringBuffer40);
 		GLOGetInfo((unsigned int)n,(unsigned int *) (&Damage),NULL,NULL);
+
+		if (p->Object[n] == 0)                    // Must own an object
+		{
+			_fs("% not owned.",GLOObjName((unsigned int)n));
+			print_timed(stringBuffer40);
+			return;
+		}
 	}
 	
-	if (p->Object[n] == 0)                    // Must own an object
-	{
-		_fs("% not owned.",GLOObjName((unsigned int)n));
-		print_timed(stringBuffer40);
-		return;
-	}
 	
 	if (p->Class == 'M' && (n == OB_BOW || n == OB_RAPIER))                    // Mages are limited
 	{
@@ -165,15 +166,15 @@ static void _ATTACKHitMonster(PLAYER *p,DUNGEONMAP *d,unsigned int Weapon,COORD 
 	Monster = DDRAWFindMonster(d,c);        // Is there a monster there ?
 	if (Monster < 0)                        // Set up a pointer
 	    return;
-     m = &(d->Monster[Monster]);
+     	m = &(d->Monster[Monster]);
 	n = m->Type;
 	
 	Damage = 0;                                // Get weaponry info
 	if (Weapon < 100 && Weapon != OB_AMULET)
         	GLOGetInfo(Weapon,&Damage,NULL,NULL);
 	
-    if (Weapon == OB_AMULET)                   // Amulet Special Case
-	    Damage = 10 + p->Level;
+   	if (Weapon == OB_AMULET)                   // Amulet Special Case
+		    Damage = 10 + p->Level;
 	
 	if (Monster < 0 || p->Attr[AT_DEXTERITY]-RandMax(25) < n + p->Level)                        // If no, or not dexterous
 	{
