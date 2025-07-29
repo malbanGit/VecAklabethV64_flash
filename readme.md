@@ -14,3 +14,5 @@ To compile you need the Vectrex Integrated Development Environment [VIDE](http:/
 - this version features the option to play with a 3x3 map or a 7x7 map
 - this version features the option to use an alternative tile set
 
+29th July 2025
+- I think I might have corrected some bare hand combat stuff (only sources edited, not actually tried it out yet)
